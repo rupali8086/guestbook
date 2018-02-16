@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>guestbook Registration</title>
+    <link rel="icon" href="assets/image/Top_ShivBaba.png" type="image/ico" sizes="16x16">
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> 
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style type="text/css">
+   
+        .container
+        {
+          margin-top: 30px;
+          width: auto;
+          height: auto;
+          border-radius: 50px;
+         }
+    </style>
+</head>
+<body>
+   <div id="userData">
+    <center><h4></h4></center>
+    <div class="container white z-depth-2">
+    <div class="row guest">
+      <div id="login" class="col-12 animated fadeIn">
+        <form class="col s12">
+         <!-- form cointainer -->
+          <div class="form-container">
+            <center><img src="assets/image/logo.png"></center>
+            <hr>
+            <div class="input-field col-6">
+                    <i class="material-icons prefix">perm_contact_calendar</i>
+                    <input id="date" type="text" class="datepicker">
+                    <label for="date">Date </label>
+                </div>
+            <!-- first row -->
+            <div class="row"> 
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="firstName" type="text" class="validate">
+                <label for="firstName">First Name</label>
+                </div>
+                <div class="input-field col m6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="lastName" type="text" class="validate">
+                    <label for="lastName">Last Name</label>
+                </div>
+              </div>
+              <!-- second row -->
+             <div class="row"> 
+              <div class="input-field col s6">
+                <i class="material-icons prefix">email</i>
+                <input id="email" type="email" class="validate">
+                <label for="email">Email Id*</label>
+                </div>
+                <div class="input-field col m6">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="phoneNumber" type="text" class="validate">
+                    <label for="phoneNumber"> Contact Number*</label>
+                </div>
+              </div>
+              <!-- Third row -->
+            <div class="row"> 
+               <div class="input-field col s6">
+                    <i class="material-icons prefix">home</i>
+                    <input id="address" type="text" class="validate">
+                    <label for="address">Address</label>
+                </div>
+                <div class="input-field col m3">
+                    <!-- <i class="material-icons prefix">phone</i> -->
+                    <input id="city" type="text" class="validate">
+                    <label for="city"> City </label>
+                </div>
+                <div class="input-field col m3">
+                    <!-- <i class="material-icons prefix">phone</i> -->
+                    <input id="zipcode" type="text" class="validate">
+                    <label for="zipcode"> Zipcode </label>
+                </div>
+              </div>
+                <!-- Fourth row -->
+            <div class="row"> 
+               <div class="input-field col-12">
+                    <i class="material-icons prefix">group</i>
+                    <input id="about" type="text" class="validate">
+                    <label for="about">How did you hear about us?</label>
+                </div>
+            </div>
+            <!-- Switch for mobile notification-->
+            <!-- <center> -->
+                <div class="row">
+                    <div class="col-6">
+                      <div class="switch">
+                        <label>
+                         Do you want event notification on your Mobile? OFF
+                          <input type="checkbox" id="textnotify">
+                          <span class="lever"></span>
+                          On
+                        </label>
+                      </div>
+                    </div>
+                    <!-- Switch for email  -->
+                <div class="col-6">
+                      <div class="switch">
+                        <label>
+                          Do you want event notification on your Email ID? OFF
+                          <input type="checkbox" id="emailnotify">
+                          <span class="lever"></span>
+                          On
+                        </label>
+                      </div>
+                </div>
+            </div>
+              <!-- </center> -->
+              <br><br>
+            <center>
+                <button class="btn waves-effect waves-light teal waves-yellow" type="submit" name="action" id="addData">Submit</button><br><br>
+           </center>
+          </div>
+      </form>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- added users -->
+<div class="container panelBox" id="services">
+
+    <div class="row">
+      <div class="col-lg-12">
+
+    <!-- Info -->
+      <div class="panel panel-primary info">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <h4 class="glyphicon glyphicon-calendar"> <span id="current-status"></span></h4><br>
+            <strong>Angels Information</strong>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-hover" id='userTable'>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Last Name</th> 
+                <th>email</th>
+                <th>Phone</th>
+                <th>address</th>
+                <th>city</th>
+                <th>zipcode</th>
+                <th>How did you here about us</th>
+                <th>Email Notification </th>
+                <th>Phone Notification </th>
+                
+                              
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+        // for date 
+        $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+  
+    </script>
+
+</body>
+    

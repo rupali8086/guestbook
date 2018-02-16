@@ -51,12 +51,12 @@
             <div class="row"> 
               <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="firstName" type="text" class="validate">
+                <input id="firstName" type="text" class="validate" autocomplete='given-name'>
                 <label for="firstName">First Name</label>
                 </div>
                 <div class="input-field col m6">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="lastName" type="text" class="validate">
+                    <input id="lastName" type="text" class="validate" autocomplete='family-name'>
                     <label for="lastName">Last Name</label>
                 </div>
               </div>
@@ -64,12 +64,12 @@
              <div class="row"> 
               <div class="input-field col s6">
                 <i class="material-icons prefix">email</i>
-                <input id="email" type="email" class="validate">
+                <input id="email" type="email" class="validate" autocomplete='email'>
                 <label for="email">Email Id*</label>
                 </div>
                 <div class="input-field col m6">
                     <i class="material-icons prefix">phone</i>
-                    <input id="phoneNumber" type="text" class="validate">
+                    <input id="phoneNumber" type="text" class="validate"  autocomplete='tel-national'>
                     <label for="phoneNumber"> Contact Number*</label>
                 </div>
               </div>
@@ -77,17 +77,17 @@
             <div class="row"> 
                <div class="input-field col s6">
                     <i class="material-icons prefix">home</i>
-                    <input id="address" type="text" class="validate">
+                    <input id="address" type="text" class="validate" autocomplete='address-line1'>
                     <label for="address">Address</label>
                 </div>
                 <div class="input-field col m3">
                     <!-- <i class="material-icons prefix">phone</i> -->
-                    <input id="city" type="text" class="validate">
+                    <input id="city" type="text" class="validate" autocomplete='address-level2'>
                     <label for="city"> City </label>
                 </div>
                 <div class="input-field col m3">
                     <!-- <i class="material-icons prefix">phone</i> -->
-                    <input id="zipcode" type="text" class="validate">
+                    <input id="zipcode" type="text" class="validate" autocomplete='postal-code'>
                     <label for="zipcode"> Zipcode </label>
                 </div>
               </div>
@@ -127,7 +127,7 @@
               <!-- </center> -->
               
             <center>
-                <button class="btn waves-effect waves-light teal waves-yellow" type="submit" name="action" id="addData">Submit</button><br><br>
+                <button class="btn waves-effect waves-light teal waves-yellow" type="button" name="action" id="addData">Submit</button><br><br>
            </center>
           </div>
       </form>
@@ -194,4 +194,5 @@
     </script>
 
 </body>
+</html>
     

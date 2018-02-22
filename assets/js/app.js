@@ -108,7 +108,7 @@ $(document).ready(function(){
         database.ref().push(userinfo);
 
 
-        // alert("Thank you , your Info successfully added");
+        alert("Thank you , your Info successfully added");
 
         $("#date").val("");
         $("#firstName").val("");
@@ -151,4 +151,18 @@ $(document).ready(function(){
         console.log(err);
   });
 
- });
+/* // });
+
+//on click command to delete key when user clicks the trash gliphicon
+        $(document).on("click", ".glyphicon-trash", deleteUser);
+
+         function deleteUser() {
+          alert("are you sure , you want delete this data ??");
+          // if()
+          var deleteKey = $(this).attr("id");
+            database.ref().child(deleteKey).remove();
+            location.reload();
+        }
+  */
+   });   
+

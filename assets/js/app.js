@@ -14,8 +14,8 @@ $(document).ready(function(){
   var database = firebase.database();
 
 
-/*// validations for users
-  $("#login").validate({
+// validations for users
+ $("#registration-form").validate({
 
     errorClass: 'invalid',
              errorPlacement: function (error, element) {
@@ -40,27 +40,35 @@ $(document).ready(function(){
       // Specify validation error messages
       messages: {
         firstname: "Please enter your firstname",
+
+        email: "Please enter a valid email address",
         
         phone: {
                 required: "Please enter your phone number",
                 number: "Please enter only numeric value"
-          },
-        email: "Please enter a valid email address"
+          }
+        
       },
       // Make sure the form is submitted to the destination defined
       // in the "action" attribute of the form when valid
-      submitHandler: function(form) {
-        event.preventDefault();
-        // registeruser();
-       }
+      // submitHandler: function(form) {
+      //   event.preventDefault();
+      //   registeruser();
+      //  }
     });
-*/
+
   // add user data
-  $("#addData").on("click", function(event){
+  // function registeruser(){
+
+  //   event.preventDefault();
+
+    $("#addData").on("click", function(event){
+      $('#myModal').modal();
     event.preventDefault();
-    console.log("hi");
+    console.log("");
     
-    var date1 = $("#date").val().trim();
+
+    var date1 = moment($("#date").val().trim()).format('MM/DD/YYYY');
     var firstName = $("#firstName").val().trim();
     var lastName = $("#lastName").val().trim();
     var email1 = $("#email").val().trim();
@@ -69,8 +77,20 @@ $(document).ready(function(){
     var city1 = $("#city").val().trim();
     var zipcode = $("#zipcode").val().trim();
     var about = $("#about").val().trim();
-    var emailnotify = $("#emailnotify").val();
-    var textnotify = $("#textnotify").val();
+    var emailnotify = false;
+    var textnotify = false; 
+
+    console.log("Email :: "+emailnotify+" TEXT :: "+textnotify);
+
+    if($("#emailnotify").is(":checked")) 
+      emailnotify = true; 
+    else 
+      emailnotify = false;
+
+    if($("#textnotify").is(":checked")) 
+      textnotify = true; 
+    else 
+      textnotify = false;
 
     var userinfo = {
         date1: date1,
@@ -86,13 +106,28 @@ $(document).ready(function(){
         textnotify: textnotify
         }
         database.ref().push(userinfo);
-        console.log(userinfo);
-        alert("Angel's  Info successfully added");
+
+
+        alert("Thank you , your Info successfully added");
+
+        $("#date").val("");
+        $("#firstName").val("");
+        $("#lastName").val("");
+        $("#email").val("");
+        $("#phoneNumber").val("");
+        $("#address").val("");
+        $("#city").val("");
+        $("#zipcode").val("");
+        $("#about").val("");
+        $("#emailnotify").val("");
+        $("#textnotify").val("");
+
         // Prevents moving to new page
         return false;
-
-
     });
+
+
+
   // for  entries from user
   database.ref().on("child_added", function(childSnapshot, prevChildKey){
     console.log(childSnapshot.val());
@@ -114,9 +149,6 @@ $(document).ready(function(){
   
   }, function(err) {
         console.log(err);
-});
+  });
 
-
-
-
-  
+ });

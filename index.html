@@ -19,6 +19,9 @@
 
      <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
+     
+
+
     
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -136,7 +139,7 @@
               
             <center>
                 <!-- <button class="btn waves-effect waves-light teal waves-yellow" type="button" name="action" id="addData">Submit</button> -->
-                <button type="button" class="btn btn-primary" id="addData" data-toggle="modal" data-target="#centralModalSuccess">Submit</button><br><br>
+                <button type="button" class="btn btn-primary" id="addData" data-toggle="modal" data-target="#exampleModalCenter" >Submit</button><br><br>
            </center>
           </div>
       </form>
@@ -145,39 +148,31 @@
 </div>
 </div>
 
-<!-- Central Modal Medium Success
-  <div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-notify modal-success" role="document">
-      Content
-      <div class="modal-content">
-          Header
-          <div class="modal-header">
-              <p class="heading lead">Thank You </p>
-  
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true" class="white-text">&times;</span>
-              </button>
-          </div>
-  
-          Body
-          <div class="modal-body">
-              <div class="text-center">
-                  <i class="fa fa-check fa-4x mb-3 animated rotateIn"></i>
-                  <p>Your data has been added succesfully ,Thank you for visiting us , Have a Peaceful Day. </p>
-              </div>
-          </div>
-  
-          Footer
-          <div class="modal-footer justify-content-center">
-              <a type="button" class="btn btn-success">OK <i class="fa fa-diamond ml-1"></i></a>
-              <a type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">Cancel</a>
-          </div>
+<!-- Button trigger modal
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+ -->
+<!-- Modal -->
+<div class="modal fade bd-example-modal-sm modal-content" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Thank You</h5>
+       <!--  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
       </div>
-      /.Content
+      <div class="modal-body">
+        <p>Your information is saved succesfully. </p>
+        Thank you and Have a peaceful day.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button> 
+      </div>
+    </div>
   </div>
-  </div> -->
-  <!-- Central Modal Medium Success-->
-  
+</div>
   
                                           
 
@@ -234,11 +229,17 @@
     today: 'Today',
     clear: 'Clear',
     close: 'Ok',
-    closeOnSelect: false // Close upon selecting a date,
+    closeOnSelect: true // Close upon selecting a date,
   });
   
     </script>
     <script src="assets/js/app.js"></script>
+
+
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
 </body>
 </html>
     

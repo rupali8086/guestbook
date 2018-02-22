@@ -63,7 +63,7 @@ $(document).ready(function(){
   //   event.preventDefault();
 
     $("#addData").on("click", function(event){
-      $('#myModal').modal();
+      
     event.preventDefault();
     console.log("");
     
@@ -108,7 +108,7 @@ $(document).ready(function(){
         database.ref().push(userinfo);
 
 
-        alert("Thank you , your Info successfully added");
+        // alert("Thank you , your Info successfully added");
 
         $("#date").val("");
         $("#firstName").val("");

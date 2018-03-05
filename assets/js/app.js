@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+   // $('.modal').modal();
 
   var config = {
     apiKey: "AIzaSyAs-tqdZiFu5ad2KzZpj3-J_2Ps280qL1c",
@@ -48,7 +49,7 @@ $(document).ready(function(){
                 number: "Please enter only numeric value"
           }
         
-      },
+      }
       // Make sure the form is submitted to the destination defined
       // in the "action" attribute of the form when valid
       // submitHandler: function(form) {
@@ -66,7 +67,7 @@ $(document).ready(function(){
       
     event.preventDefault();
     console.log("");
-    
+
 
     var date1 = moment($("#date").val().trim()).format('MM/DD/YYYY');
     var firstName = $("#firstName").val().trim();
@@ -108,7 +109,11 @@ $(document).ready(function(){
         database.ref().push(userinfo);
 
 
-        alert("Thank you , your Info successfully added");
+    
+        // alert("Thank you , your Info successfully added");
+        // $('.modal').modal();
+        
+        $("#exampleModalCenter").modal("show");
 
         $("#date").val("");
         $("#firstName").val("");

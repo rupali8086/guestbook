@@ -110,7 +110,7 @@ $(document).ready(function(){
 
 
     
-        // alert("Thank you , your Info successfully added");
+        alert("Thank you , your Info successfully added");
         // $('.modal').modal();
         
         $("#exampleModalCenter").modal("show");
